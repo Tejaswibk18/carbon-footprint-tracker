@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:3000", // React frontend
+    origin: process.env.FRONTEND_URL || "http://localhost:3000", // Allow frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -19,7 +19,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/carbon-footprint", {
+  .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -34,5 +34,5 @@ app.get("/ping", (req, res) => {
   res.send("pong 🏓");
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
