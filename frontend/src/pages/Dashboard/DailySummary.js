@@ -41,6 +41,9 @@ const DailySummary = () => {
   const [emissions, setEmissions] = useState({});
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
+  // ✅ Use backend URL from environment variable
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
   const factors = {
     travel: 0.21,
     electricity: 0.85,
@@ -51,10 +54,12 @@ const DailySummary = () => {
   };
 
   useEffect(() => {
+    if (!currentUser) return;
+
     const fetchSummary = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/daily-input/${currentUser.uid}/${today}`
+          `${backendUrl}/api/daily-input/${currentUser.uid}/${today}`
         );
         const data = res.data;
         setSummary(data);
@@ -76,8 +81,9 @@ const DailySummary = () => {
         setLoading(false);
       }
     };
+
     fetchSummary();
-  }, [currentUser, today]);
+  }, [currentUser, today, backendUrl]);
 
   if (loading) return <p>Loading...</p>;
   if (!summary) {
