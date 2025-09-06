@@ -1,7 +1,7 @@
+// backend/index.js
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config(); // ✅ load env vars
 
 const dailyInputRoutes = require("./routes/dailyInput");
 
@@ -10,7 +10,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, // ✅ now from .env
+    origin: "http://localhost:3000", // React frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -19,7 +19,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect("mongodb://127.0.0.1:27017/carbon-footprint", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -29,9 +29,10 @@ mongoose
 // Routes
 app.use("/api/daily-input", dailyInputRoutes);
 
+// Test route
 app.get("/ping", (req, res) => {
   res.send("pong 🏓");
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
