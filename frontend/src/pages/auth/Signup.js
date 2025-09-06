@@ -17,15 +17,22 @@ const Signup = () => {
     e.preventDefault();
     setError("");
 
+    // Check password match
     if (password !== confirmPassword) {
       return setError("Passwords do not match!");
     }
 
+    // Check minimum length
+    if (password.length < 6) {
+      return setError("Password must be at least 6 characters long!");
+    }
+
     try {
       await signup(email, password);
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (err) {
-      setError("Failed to create account. Try again.");
+      console.error("Signup error:", err.message);
+      setError(err.message || "Failed to create account. Try again.");
     }
   };
 
@@ -95,7 +102,7 @@ const Signup = () => {
             <Lock className="text-green-600 mr-2" size={20} />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Password (min 6 chars)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
