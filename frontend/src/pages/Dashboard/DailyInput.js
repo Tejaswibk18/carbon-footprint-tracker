@@ -15,9 +15,6 @@ const DailyInput = () => {
   const [waste, setWaste] = useState("");
   const [userId, setUserId] = useState(null);
 
-  // ✅ Backend URL from environment variable
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
-
   useEffect(() => {
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
@@ -46,35 +43,31 @@ const DailyInput = () => {
       return;
     }
 
-const payload = {
-  userId,   // ✅ matches schema
-  date,
-  travel: {
-    mode: travelType,   // ✅ matches schema (car, bus, etc.)
-    type: fuelType,     // ✅ matches schema (petrol, diesel, ev)
-    km: distance ? Number(distance) : 0,
-  },
-  electricity: {
-    units: electricityUnits ? Number(electricityUnits) : 0,
-  },
-  meals: {
-    veg: vegMeals ? Number(vegMeals) : 0,
-    nonVeg: nonVegMeals ? Number(nonVegMeals) : 0,
-  },
-  shopping: {
-    amount: shopping ? Number(shopping) : 0,
-  },
-  waste: {
-    quantity: waste ? Number(waste) : 0,
-  },
-};
-
-console.log("📤 Sending payload:", payload, "to", `${backendUrl}/api/daily-input`);
-
+    const payload = {
+      userId,
+      date,
+      travel: {
+        type: travelType,
+        fuel: fuelType,
+        km: distance ? Number(distance) : 0,
+      },
+      electricity: {
+        units: electricityUnits ? Number(electricityUnits) : 0,
+      },
+      meals: {
+        veg: vegMeals ? Number(vegMeals) : 0,
+        nonVeg: nonVegMeals ? Number(nonVegMeals) : 0,
+      },
+      shopping: {
+        amount: shopping ? Number(shopping) : 0,
+      },
+      waste: {
+        quantity: waste ? Number(waste) : 0,
+      },
+    };
 
     try {
-      // ✅ Use dynamic backend URL instead of localhost
-      await axios.post(`${backendUrl}/api/daily-input`, payload);
+      await axios.post("http://localhost:5000/api/daily-input", payload);
       alert("✅ Daily input saved successfully!");
       setDistance("");
       setFuelType("");
@@ -84,19 +77,11 @@ console.log("📤 Sending payload:", payload, "to", `${backendUrl}/api/daily-inp
       setNonVegMeals("");
       setShopping("");
       setWaste("");
-   } catch (err) {
-  if (err.response) {
-    console.error("❌ Backend error:", err.response.data);
-    alert(`❌ Error: ${err.response.data.message || "Failed to save data"}`);
-  } else {
-    console.error("❌ Network/Other error:", err.message);
-    alert(`❌ Error: ${err.message}`);
-  }
-}
+    } catch (err) {
+      console.error(err);
+      alert("❌ Something went wrong while saving!");
+    }
   };
-
-
-  
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100 overflow-hidden">
@@ -268,3 +253,4 @@ console.log("📤 Sending payload:", payload, "to", `${backendUrl}/api/daily-inp
 };
 
 export default DailyInput;
+
