@@ -214,7 +214,7 @@ carbon-footprint-tracker/
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/carbon-footprint-tracker.git
+git clone https://github.com/Tejaswibk18/carbon-footprint-tracker.git
 ```
 
 ## Navigate
