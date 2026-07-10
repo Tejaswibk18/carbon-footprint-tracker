@@ -1,203 +1,310 @@
-🌱 Carbon Footprint Tracker
+# 🌱 Carbon Footprint Tracker
 
-A full-stack sustainability platform built with the MERN stack, Firebase Authentication, and an AI-powered chatbot (EcoBot) to help users track, analyze, and reduce their carbon footprint through actionable insights and modern data visualizations.
+<p align="center">
+  <strong>A full-stack sustainability platform that helps users track, analyze, and reduce their carbon footprint through interactive analytics and an AI-powered assistant.</strong>
+</p>
 
-This project focuses on awareness + behavior change, encouraging eco-friendly habits using analytics, progress tracking, and AI assistance.
+<p align="center">
+  Built with React, Node.js, Express, MongoDB, Firebase Authentication, and AI.
+</p>
 
-🚀 Key Features
-🔐 Authentication & Security
+---
 
-Secure Firebase Authentication
+## 📖 Overview
 
-Protected routes for dashboard access
+Carbon Footprint Tracker is a modern MERN-based web application designed to encourage sustainable living by helping users monitor their daily carbon emissions.
 
-User-specific data storage and retrieval
+The platform provides insightful analytics, sustainability scores, interactive dashboards, and an AI-powered assistant (**EcoBot**) that offers eco-friendly recommendations and guides users throughout the application.
 
-📝 Daily Carbon Activity Tracking
+---
 
-Log daily activities:
+# ✨ Features
 
-🚗 Travel (car, bus, bike, train with fuel types)
+## 🔐 Authentication
 
-⚡ Electricity usage (restricted to 3rd of every month)
+- Firebase Authentication
+- Secure login and registration
+- Protected dashboard routes
+- User-specific data storage
 
-🍽️ Food habits (veg & non-veg meals)
+---
 
-🛍️ Shopping expenses
+## 📝 Daily Activity Tracking
 
-🗑️ Waste generation
+Users can record their daily carbon-emitting activities including:
 
-Smart input validation and user guidance
+- 🚗 Travel
+  - Car
+  - Bike
+  - Bus
+  - Train
+  - Fuel type selection
 
-📊 Advanced Analytics & Insights
+- ⚡ Electricity Consumption
+  - Available only on the **3rd day of every month**
 
-Monthly comparison charts (current vs previous month)
+- 🍽️ Food Habits
+  - Vegetarian meals
+  - Non-vegetarian meals
 
-Category-wise emission breakdown
+- 🛍️ Shopping
 
-Color-coded progress bars
+- 🗑️ Waste Generation
 
-🟢 Improved usage
+### Input Validation
 
-🔴 Increased usage
+- Prevents negative values
+- User-friendly validation messages
+- Activity-specific constraints
 
-🟣 Previous month baseline
+---
 
-Interactive charts using Recharts
+## 📊 Analytics Dashboard
 
-📈 Progress & Sustainability Score
+Gain insights into your environmental impact through:
 
-Green Score (0–100) based on weighted activities
+- 📈 Monthly emission comparison
+- 📊 Category-wise emission charts
+- 📉 Previous vs Current month analysis
+- 📌 Interactive Recharts visualizations
 
-Best-performing and improvement-needed categories
+### Color Indicators
 
-Motivational tips based on performance
+| Color | Meaning |
+|--------|----------|
+| 🟢 | Improved usage |
+| 🔴 | Increased emissions |
+| 🟣 | Previous month baseline |
 
-Estimated month-over-month sustainability improvement
+---
 
-🤖 AI EcoBot (Smart Green Assistant)
+## 🌿 Sustainability Score
 
-Floating chatbot available across the app
+The application calculates a **Green Score (0–100)** based on user activities.
 
-Answers questions like:
+It provides:
 
-“How can I reduce my carbon footprint?”
+- Overall sustainability score
+- Best-performing categories
+- Areas needing improvement
+- Estimated month-over-month progress
+- Personalized motivational tips
 
-“How do I use this website?”
+---
 
-“Who created this platform?”
+## 🤖 EcoBot – AI Green Assistant
 
-Provides:
+A floating AI chatbot available across the application.
 
-Personalized eco-friendly tips
+### EcoBot can help with:
 
-Guidance on using features
+- 🌱 Carbon footprint reduction tips
+- 📖 Website usage guidance
+- 👨‍💻 Project information
+- 👋 Developer introduction
+- ❓ General sustainability questions
 
-Project and developer introduction
+### UI Highlights
 
-Designed with modern glass-morphism UI
+- Glassmorphism design
+- Responsive floating widget
+- Friendly conversational interface
 
-📚 Reference & Methodology Page
+---
 
-Scientifically backed emission formulas
+## 📚 Reference & Methodology
 
-Clear explanation of:
+A dedicated page explains how emissions are calculated using trusted environmental research.
 
-Travel, food, electricity, shopping, and waste emissions
+### Covers
 
-Sources from trusted organizations (IPCC, IEA, EPA, WWF)
+- Travel emissions
+- Electricity emissions
+- Food emissions
+- Shopping emissions
+- Waste emissions
 
-Modern, research-style UI layout
+### Reference Sources
 
-🎨 Modern UI & UX
+- IPCC
+- IEA
+- EPA
+- WWF
 
-Responsive design using Tailwind CSS
+---
 
-Smooth animations with Framer Motion
+# 🎨 User Interface
 
-Glass-morphism cards and eco-themed gradients
+- 🌿 Modern eco-themed design
+- 📱 Fully responsive
+- ✨ Framer Motion animations
+- 🪟 Glassmorphism cards
+- 🎯 Intuitive dashboard
+- 🌈 Tailwind CSS styling
 
-Clean dashboard layout with intuitive navigation
+---
 
-🛠️ Tech Stack
-Frontend
+# 🛠️ Tech Stack
 
-React.js
+## Frontend
 
-Tailwind CSS
+- React.js
+- Tailwind CSS
+- Framer Motion
+- Recharts
+- Lucide React
 
-Framer Motion
+## Backend
 
-Recharts
+- Node.js
+- Express.js
+- MongoDB
+- REST APIs
 
-Lucide Icons
+## Authentication
 
-Backend
+- Firebase Authentication
 
-Node.js
+## AI
 
-Express.js
+- EcoBot (Conversational AI Integration)
 
-MongoDB
+---
 
-RESTful APIs
+# 📂 Project Structure
 
-Authentication
-
-Firebase Authentication
-
-AI Integration
-
-EcoBot Chatbot (API-based conversational AI)
-
-📁 Project Structure
+```text
 carbon-footprint-tracker/
 │
-├── frontend/              # React frontend
+├── frontend/
 │   ├── src/
-│   │   ├── pages/         # Landing, Auth, Dashboard pages
-│   │   ├── components/    # Chatbot, UI components
-│   │   ├── context/       # Auth context
-│   │   └── styles/        # Global styles
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── context/
+│   │   └── styles/
+│   └── package.json
 │
-├── backend/               # Express backend
-│   ├── routes/            # API routes
-│   ├── models/            # MongoDB schemas
-│   └── index.js           # Server entry point
+├── backend/
+│   ├── routes/
+│   ├── models/
+│   ├── middleware/
+│   ├── controllers/
+│   ├── package.json
+│   └── index.js
 │
-├── .env                   # Environment variables
+├── .env
 ├── .gitignore
 └── README.md
+```
 
+---
 
+# ⚙️ Business Rules
 
+- ✅ Electricity usage can only be entered on the **3rd day** of each month.
+- ✅ Negative values are not accepted.
+- ✅ Every user's data is isolated and securely stored.
+- ✅ Analytics update dynamically after every submission.
+- ✅ Dashboard reflects real-time emission calculations.
 
-Key Functional Rules
+---
 
-Electricity input allowed only on the 3rd of each month
+# 🚀 Getting Started
 
-Negative values are restricted
+## Clone Repository
 
-Data is user-specific and securely stored
+```bash
+git clone https://github.com/yourusername/carbon-footprint-tracker.git
+```
 
-Visual indicators always match underlying analytics logic
+## Navigate
 
-✨ Future Enhancements
+```bash
+cd carbon-footprint-tracker
+```
 
-📱 Mobile application (React Native / Flutter)
+## Install Frontend
 
-🏆 Achievement badges & eco streaks
+```bash
+cd frontend
+npm install
+npm start
+```
 
-📤 Export monthly reports (PDF/CSV)
+## Install Backend
 
-🌍 Community leaderboard
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-🧠 AI-based personalized reduction plans
+---
 
-🔔 Smart reminders & notifications
+# 🔮 Future Enhancements
 
-👨‍💻 About the Developer
+- 📱 Mobile Application (React Native / Flutter)
+- 🏆 Achievement Badges
+- 🔥 Eco Streak Tracking
+- 📤 PDF & CSV Report Export
+- 🌍 Community Leaderboard
+- 🧠 AI-Powered Personalized Reduction Plans
+- 🔔 Smart Notifications & Reminders
+- 📊 Advanced Analytics Dashboard
 
-This project was designed and developed by Tejaswi Kiranagi,
-a Computer Science student passionate about sustainability, data-driven solutions, and modern web technologies.
+---
 
-The goal of this project is to combine technology + environmental responsibility to create real-world impact.
+# 👨‍💻 Developer
 
-🤝 Contributing
+**Tejaswi Kiranagi**
 
-Contributions, feedback, and suggestions are welcome!
-If you’d like to improve this project:
+Computer Science Engineer passionate about:
 
-Fork the repository
+- Sustainable Technology
+- Full Stack Development
+- Artificial Intelligence
+- Data Visualization
+- Modern UI/UX
 
-Create a feature branch
+---
 
-Commit your changes
+# 🤝 Contributing
 
-Submit a pull request
+Contributions are welcome!
 
-🌍 Final Note
+1. Fork the repository
+2. Create a new feature branch
 
-“Every small action matters. Awareness today leads to a greener tomorrow.”
+```bash
+git checkout -b feature-name
+```
 
-🌱 Let’s build a more sustainable future — one data point at a time.
+3. Commit your changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push your branch
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+# 🌍 Vision
+
+> **"Every small action matters. Awareness today leads to a greener tomorrow."**
+
+Let's build a more sustainable future—one data point at a time.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and motivates future improvements.
